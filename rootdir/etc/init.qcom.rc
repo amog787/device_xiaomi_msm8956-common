@@ -677,3 +677,39 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     disabled
     oneshot
+
+#Default
+on property:thermal.profile=0
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-default.conf"
+    stop thermal-engine
+    start thermal-engine
+
+#Game
+on property:thermal.profile=9
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-game.conf"
+    stop thermal-engine
+    start thermal-engine
+
+#Performance
+on property:thermal.profile=10
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-performance.conf"
+    stop thermal-engine
+    start thermal-engine
+
+#Video
+on property:thermal.profile=14
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-video.conf"
+    stop thermal-engine
+    start thermal-engine
+
+#Video
+on property:thermal.profile=13
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-game.conf"
+    stop thermal-engine
+    start thermal-engine
+
+#Video
+on property:thermal.profile=11
+    setprop sys.qcom.thermalcfg "/system/vendor/etc/thermal-engine-default.conf"
+    stop thermal-engine
+    start thermal-engine
